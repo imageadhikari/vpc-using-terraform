@@ -19,3 +19,6 @@ To destroy the infrastructure after use
 ```bash
 terraform destroy
 ```
+
+## Architecture followed
+![](architecture.jpg)
