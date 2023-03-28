@@ -22,3 +22,6 @@ terraform destroy
 
 ## Output
 ![](output.jpg)
+
+## Architecture
+![](architecture.jpg)
