@@ -115,3 +115,22 @@ resource "aws_subnet" "private-subnet-4" {
     Name    = "Private Subnet 4 | Database Tier"
   }
 }
+
+# Elastic IP for NAT gateway
+resource "aws_eip" "eip" {
+  vpc      = true
+}
+
+# Create NAT gateway
+resource "aws_nat_gateway" "nat-gateway" {
+  allocation_id = aws_eip.eip.id
+  subnet_id     = aws_subnet.public-subnet-1.id
+
+  tags = {
+    Name = "NAT-gateway"
+  }
+
+  # To ensure proper ordering, it is recommended to add an explicit dependency
+  # on the Internet Gateway for the VPC.
+  depends_on = [aws_internet_gateway.internet-gateway]
+}

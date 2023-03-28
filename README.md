@@ -20,5 +20,5 @@ To destroy the infrastructure after use
 terraform destroy
 ```
 
-## Architecture followed
-![](architecture.jpg)
+## Output
+![](output.jpg)
